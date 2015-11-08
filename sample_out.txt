@@ -1,0 +1,57 @@
+Process A: arrive: 0 required: 10 time spent: 0 wait: 0
+Process B: arrive: 2 required: 5 time spent: 0 wait: 0
+Process C: arrive: 3 required: 1 time spent: 0 wait: 0
+Process D: arrive: 5 required: 1 time spent: 0 wait: 0
+Process E: arrive: 1 required: 11 time spent: 0 wait: 0
+
+===== RUNNING FCFS =====
+   == RUN GRAPH ==
+A |>B   B   B   B   B   B   B   B   B   B<                                                                         
+B |        >W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   B   B   B   B   B<         
+C |            >W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   B<     
+D |                    >W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   B< 
+E |    >W   W   W   W   W   W   W   W   W   B   B   B   B   B   B   B   B   B   B   B<                             
+-------------------------------------------------------------------------------------------------------------------
+  |000|001|002|003|004|005|006|007|008|009|010|011|012|013|014|015|016|017|018|019|020|021|022|023|024|025|026|027|
+-- Stats --
+  Avg. Response Time (Avg. Wait): 14.600000
+  Avg. Turnaround Time          : 20.200000
+
+===== RUNNING SJF =====
+   == RUN GRAPH ==
+A |>B   B   B   B   B   B   B   B   B   B<                                                                         
+B |        >W   W   W   W   W   W   W   W   W   W   B   B   B   B   B<                                             
+C |            >W   W   W   W   W   W   W   B<                                                                     
+D |                    >W   W   W   W   W   W   B<                                                                 
+E |    >W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   B   B   B   B   B   B   B   B   B   B   B< 
+-------------------------------------------------------------------------------------------------------------------
+  |000|001|002|003|004|005|006|007|008|009|010|011|012|013|014|015|016|017|018|019|020|021|022|023|024|025|026|027|
+-- Stats --
+  Avg. Response Time (Avg. Wait): 7.800000
+  Avg. Turnaround Time          : 13.400000
+
+===== RUNNING SRT =====
+   == RUN GRAPH ==
+A |>B   B   W   W   W   W   W   W   W   B   B   B   B   B   B   B   B<                                             
+B |        >B   W   B   W   B   B   B<                                                                             
+C |            >B                                                                                                  
+D |                    >B                                                                                          
+E |    >W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   W   B   B   B   B   B   B   B   B   B   B   B< 
+-------------------------------------------------------------------------------------------------------------------
+  |000|001|002|003|004|005|006|007|008|009|010|011|012|013|014|015|016|017|018|019|020|021|022|023|024|025|026|027|
+-- Stats --
+  Avg. Response Time (Avg. Wait): 5.000000
+  Avg. Turnaround Time          : 10.600000
+
+===== RUNNING RR =====
+   == RUN GRAPH ==
+A |>B   W   B   W   W   W   B   W   W   W   B   W   W   B   W   W   B   W   W   B   W   B   W   B   W   B<         
+B |        >W   B   W   W   W   B   W   W   W   B   W   W   B   W   W   B<                                         
+C |            >W   W   B<                                                                                         
+D |                    >W   W   W   B<                                                                             
+E |    >B   W   W   B   W   W   W   W   B   W   W   B   W   W   B   W   W   B   W   B   W   B   W   B   W   B   B< 
+-------------------------------------------------------------------------------------------------------------------
+  |000|001|002|003|004|005|006|007|008|009|010|011|012|013|014|015|016|017|018|019|020|021|022|023|024|025|026|027|
+-- Stats --
+  Avg. Response Time (Avg. Wait): 9.600000
+  Avg. Turnaround Time          : 15.200000

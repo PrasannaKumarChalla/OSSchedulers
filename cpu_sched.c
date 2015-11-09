@@ -6,6 +6,7 @@
  */
 
 #include "cpu_sched.h"
+#include "schedulers.h"
 #include "proc.h"
 #include "stdio.h"
 

@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 int fcfs(proc_t * processes, int numprocesses, int timeslice){
 int i,to_run,flag=1,arrived;
 for(i=0;i<numprocesses;i++){
@@ -62,6 +63,33 @@ for(i=0;i<numprocesses;i++){
 
 }
 return to_run;
+}
+
+
+int rr(proc_t * processes, int numprocesses, int timeslice){
+int i,to_run,rburst;
+for(i=0;i<numprocesses;i++){
+	if(running(&processes[i],timeslice)){
+
+	  if(processes[i].m_arrive==timeslice){
+		Enqueue(i);
+		//return i;
+	  }
+    
+    }
+
+}
+if (!isEmpty())
+{
+to_run=Dequeue();
+}
+rburst=processes[to_run].m_burst-processes[to_run].m_timeburst;
+if(rburst>1){
+  Enqueue(to_run);
+}
+
+return to_run;
+
 }
 
 

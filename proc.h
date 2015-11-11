@@ -7,6 +7,7 @@
 
 #ifndef SOLN_PROC_H
 #define SOLN_PROC_H
+#define MAX_SIZE 25
 
 typedef struct _repnode {
     char action;
@@ -115,4 +116,10 @@ void print_rungraph(proc_t * procs, int numprocs);
  * \post the rungraph is formatted and printed to the screen
  */
 void print_stats(proc_t * procs, int numprocs);
+void InitQueue();
+void ClearQueue();
+int Enqueue(int i);
+int Dequeue();
+int isEmpty();
+int isFull();
 #endif //SOLN_PROC_H

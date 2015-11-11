@@ -28,6 +28,21 @@ int main(int argc, char* argv[])
         printf("Cannot open file %s for reading; exiting", argv[1]);
         exit(1);
     }
+
+    // printf("Testing queue------\n");
+    InitQueue();
+    // printf("Q created\n");
+    // Enqueue(5);
+    // Enqueue(7);
+    // printf("Enqueue doene\n");
+    // printf("Checking queue is full or empty\n");
+    // printf("Is Empty:%d\n",isEmpty());
+    // printf("Is Full:%d\n",isFull());
+    // printf("Deq number is %d\n",Dequeue());
+    // printf("Done\n");
+
+
+
     fscanf(procfile, "%d\n", &numprocs);
 
     processes = calloc(numprocs, sizeof(proc_t));
@@ -44,7 +59,7 @@ int main(int argc, char* argv[])
    run_scheduler(processes, numprocs, fcfs, "FCFS");
     run_scheduler(processes, numprocs, sjf, "SJF");
     run_scheduler(processes, numprocs, srt, "SRT");
-    //run_scheduler(processes, numprocs, rr, "RR");
+    run_scheduler(processes, numprocs, rr, "RR");
     //reset_all frees the memory the processes take (since they have a LL of nodes...)
     reset_all(processes, numprocs);
     free(processes);

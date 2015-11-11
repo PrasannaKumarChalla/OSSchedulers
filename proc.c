@@ -7,6 +7,8 @@
 #include "proc.h"
 #include <stdlib.h>
 #include <stdio.h>
+static int head,tail;
+static int theQueue[MAX_SIZE];
 
 repnode_t new_node(char action)
 {
@@ -140,4 +142,32 @@ void print_stats(proc_t * procs, int numprocs)
 int time_remaining(proc_t * proc)
 {
     return proc->m_burst - proc->m_timeburst;
+}
+
+void InitQueue(){
+    head=tail=-1;
+}
+void ClearQueue(){
+    head=tail=-1;
+}
+int Enqueue(int i){
+   if(isFull()) return 0;
+   tail++;
+   theQueue[tail % MAX_SIZE]=i;
+   return 1;
+}
+int Dequeue(){
+    int i;
+    if(isEmpty()) return -1;
+    else{
+        head++;
+        i=theQueue[head % MAX_SIZE];
+        return i;
+    }
+}
+int isEmpty(){
+    return (head==tail);
+}
+int isFull(){
+    return((tail-MAX_SIZE)==head);
 }
